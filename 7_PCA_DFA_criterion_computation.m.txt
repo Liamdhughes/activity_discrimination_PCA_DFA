@@ -41,7 +41,7 @@ multiplication_factor = 2
             A_x = sum((validation_data).*(ones(size(validation_data,1),1)*DFA_spectrum_01),2);
             A_y = sum((validation_data).*(ones(size(validation_data,1),1)*DFA_spectrum_02),2);
             
-            
+            % Calculate the centriod of each activity
             centre_01(1) = mean(A_x(1:boundary(1)));
             centre_02(1) = mean(A_x(boundary(1)+1:boundary(2)));
             centre_03(1) = mean(A_x(boundary(2)+1:end));
@@ -49,7 +49,8 @@ multiplication_factor = 2
             centre_01(2) = mean(A_y(1:boundary(1)));
             centre_02(2) = mean(A_y(boundary(1)+1:boundary(2)));
             centre_03(2) = mean(A_y(boundary(2)+1:end));            
-            
+
+            % Calculate the distances between the three activity centroids
             dist_1_2 = sqrt((centre_01(1)-centre_02(1)).^2+(centre_01(2)-centre_02(2)).^2);
             dist_1_3 = sqrt((centre_01(1)-centre_03(1)).^2+(centre_01(2)-centre_03(2)).^2);
             dist_2_3 = sqrt((centre_02(1)-centre_03(1)).^2+(centre_02(2)-centre_03(2)).^2);
@@ -86,7 +87,8 @@ multiplication_factor = 2
             scatter_01_y = std(array_01_y);
             scatter_02_y = std(array_02_y);
             scatter_03_y = std(array_03_y);
-           % updated criterion calculation 
+
+           % updated criterion calculation
             criterion(str2num(Individual_No),Sensor_No,tr_counter) = (dist_1_2*dist_1_3*dist_2_3)/(scatter_01*scatter_02*scatter_03);   
             criterion_x(str2num(Individual_No),Sensor_No,tr_counter) = (dist_1_2_x*dist_1_3_x*dist_2_3_x)/(scatter_01_x*scatter_02_x*scatter_03_x);  
             criterion_y(str2num(Individual_No),Sensor_No,tr_counter) = (dist_1_2_y*dist_1_3_y*dist_2_3_y)/(scatter_01_y*scatter_02_y*scatter_03_y);
@@ -104,6 +106,4 @@ multiplication_factor = 2
     end
     tr_counter = tr_counter + 1;
 
-% Line below is taken from the title, This needs updating to show correct criterion values for each scatter plot figure. 
-%'discrimination criterion = ',num2str(criterion(str2num(Individual_No)
 save('updated_not_normalised_two_criteria.mat','criterion','criterion_x')
