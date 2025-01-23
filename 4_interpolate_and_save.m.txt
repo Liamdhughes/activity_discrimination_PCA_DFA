@@ -1,5 +1,6 @@
 % Copyright, M.Bencsik, M.Bisele L.D.Hughes, 2023
 
+%% This code is designed to interpolate the five sensors, giving them all the same time duration, regardless of minor shifts in sampling frequency between sensors%%
 clear
 close all
 
