@@ -1,45 +1,8 @@
 function y = graph_scores(scores,DFA_scores,A,B,boundaries);
 
-% subplot(2,2,1)
-% plot(scores(1,1:boundaries(1)),scores(2,1:boundaries(1)),'ro','markerfacecolor','r')
-% hold on
-% plot(scores(1,(boundaries(1)+1):boundaries(2)),scores(2,(boundaries(1)+1):boundaries(2)),'ko','markerfacecolor','k')
-% plot(scores(1,(boundaries(2)+1):end),scores(2,(boundaries(2)+1):end),'co','markerfacecolor','c')
-% grid on
-% xlabel('PC score No 1')
-% ylabel('PC score No 2')
-% axis tight
-% title(['Sensor No ',num2str(A),' Individual ',num2str(B)])
-% 
-% legend('self selected','slow walk','fast walk')
-% 
-% subplot(2,2,2)
-% plot(scores(1,1:boundaries(1)),scores(3,1:boundaries(1)),'ro','markerfacecolor','r')
-% hold on
-% plot(scores(1,(boundaries(1)+1):boundaries(2)),scores(3,(boundaries(1)+1):boundaries(2)),'ko','markerfacecolor','k')
-% plot(scores(1,(boundaries(2)+1):end),scores(3,(boundaries(2)+1):end),'co','markerfacecolor','c')
-% grid on
-% xlabel('PC score No 1')
-% ylabel('PC score No 3')
-% axis tight
-% title(['Sensor No ',num2str(A),' Individual ',num2str(B)])
-% 
-% 
-% 
-% subplot(2,2,3)
-% plot(scores(2,1:boundaries(1)),scores(4,1:boundaries(1)),'ro','markerfacecolor','r')
-% hold on
-% plot(scores(2,(boundaries(1)+1):boundaries(2)),scores(4,(boundaries(1)+1):boundaries(2)),'ko','markerfacecolor','k')
-% plot(scores(2,(boundaries(2)+1):end),scores(4,(boundaries(2)+1):end),'co','markerfacecolor','c')
-% grid on
-% xlabel('PC score No 2')
-% ylabel('PC score No 4')
-% axis tight
-% title(['Sensor No ',num2str(A),' Individual ',num2str(B)])
-% 
-% 
-% 
-% subplot(2,2,4)
+%% This code plots the df scores in two dimensions, also superimposing circles around the centroid with a radius of 1 STD%% 
+
+
 plot(DFA_scores(1:boundaries(1),1),DFA_scores(1:boundaries(1),2),'ro','markerfacecolor','r')
 hold on
 plot(DFA_scores((boundaries(1)+1):boundaries(2),1),DFA_scores((boundaries(1)+1):boundaries(2),2),'ko','markerfacecolor','k')
