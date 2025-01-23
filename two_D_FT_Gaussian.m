@@ -1,5 +1,6 @@
 function y = two_D_FT_Gaussian(track,MF,TR,SR,FWHM);
 
+%% This code creates the 2DFT for each spectogram %%
 
 window = exp(-(1/((FWHM*SR)/(2*sqrt(log(2))))^2)*((1:length(track)) - 0.5*length(track)).^2);
 
